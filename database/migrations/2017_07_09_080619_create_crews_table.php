@@ -17,7 +17,7 @@ class CreateCrewsTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->integer('persons');
-            $table->integer('type');
+            $table->string('type');
             $table->timestamps();
         });
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Crew;
+use App\Http\Requests\CrewSaveRequest;
 use Illuminate\Http\Request;
 
 class CrewsController extends Controller
@@ -21,23 +22,14 @@ class CrewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Crew $crew)
     {
 
-        $crews = Crew::all();
+        $crews = Crew::latest()->get();
         return view('crews', compact('crews'));
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -45,10 +37,29 @@ class CrewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CrewSaveRequest $request)
     {
-        //
+
+        $crew = Crew::create([
+            'name'     => $request['name'],
+            'persons'  => $request['persons'],
+            'type'     => $request['type']
+        ]);
+
+        if($crew){
+
+            session()->flash('message', 'Crews has been created');
+            return redirect()->back();
+
+        }
+
+        return redirect()->back()->withErrors([
+            'message' => 'Please check your credentials'
+        ]);
+
+
     }
+
 
     /**
      * Display the specified resource.

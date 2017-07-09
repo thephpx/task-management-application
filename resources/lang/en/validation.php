@@ -100,8 +100,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'persons' => [
+            'numeric' => 'The number field should consist only of numbers',
         ],
     ],
 
