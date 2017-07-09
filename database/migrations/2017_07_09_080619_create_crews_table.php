@@ -15,12 +15,14 @@ class CreateCrewsTable extends Migration
     {
         Schema::create('crews', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('type_id')->references('id')->on('types');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->integer('persons');
             $table->integer('score');
             $table->timestamps();
         });
+
+
+
     }
 
     /**
@@ -31,5 +33,6 @@ class CreateCrewsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('crews');
+        Schema::dropIfExists('types');
     }
 }
