@@ -12,3 +12,10 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+
+// login and registration
+Route::get('/login', 'SessionsController@create')->name('login');
+Route::post('/login', 'SessionsController@store');
+Route::get('/logout', 'SessionsController@destroy');
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');

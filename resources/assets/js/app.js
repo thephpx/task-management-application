@@ -20,3 +20,12 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
+
+
+$(document).ready(function(){
+    setTimeout(fadeFlash, 3000);
+});
+
+function fadeFlash(){
+    $('#flash').fadeOut(500);
+}

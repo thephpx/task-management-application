@@ -788,8 +788,16 @@ window.Vue = __webpack_require__(38);
 Vue.component('example', __webpack_require__(35));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
 });
+
+$(document).ready(function () {
+    setTimeout(fadeFlash, 3000);
+});
+
+function fadeFlash() {
+    $('#flash').fadeOut(500);
+}
 
 /***/ }),
 /* 9 */
