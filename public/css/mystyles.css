@@ -1,0 +1,14 @@
+#navbar ul.nav {
+  text-transform: uppercase;
+  font-size: 18px;
+  height: 7.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 30px;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlc291cmNlcy9hc3NldHMvc2Fzcy9teXN0eWxlcy5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIlxyXG5cclxuI25hdmJhciB1bC5uYXYge1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgZm9udC1zaXplOiAxOHB4O1xyXG4gIGhlaWdodDogNy41cmVtOyAgICAgIC8vaW5zdGVhZCBvZiAlIHRvIGdldCAxMDAlIGhlaWdodCBpZiBpdHMgaW1wb3NzaWJsZSB1c2luZyBwZXJjZW50c1xyXG4gIGRpc3BsYXk6IGZsZXg7ICAgICAgIC8vIHZlcnRpY2FsIGFsaWdubWVudFxyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgbWFyZ2luLXJpZ2h0OiAzMHB4O1xyXG59Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBLEFBQVEsT0FBRCxDQUFDLEVBQUUsQUFBQSxJQUFJLENBQUM7RUFDYixjQUFjLEVBQUUsU0FBUztFQUN6QixTQUFTLEVBQUUsSUFBSTtFQUNmLE1BQU0sRUFBRSxNQUFNO0VBQ2QsT0FBTyxFQUFFLElBQUk7RUFDYixXQUFXLEVBQUUsTUFBTTtFQUNuQixZQUFZLEVBQUUsSUFBSTtDQUNuQiJ9 */

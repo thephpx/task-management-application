@@ -1,0 +1,10 @@
+
+
+#navbar ul.nav {
+  text-transform: uppercase;
+  font-size: 18px;
+  height: 7.5rem;      //instead of % to get 100% height if its impossible using percents
+  display: flex;       // vertical alignment
+  align-items: center;
+  margin-right: 30px;
+}
