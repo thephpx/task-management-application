@@ -47,7 +47,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a>Overview</a></li>
                 <li><a href="#">Tasks</a></li>
-                <li><a href="#">Crews</a></li>
+                <li><a href="/crews">Crews</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
@@ -59,7 +59,6 @@
                     <li><a href="/login">Login</a></li>
                     <li><a href="/register">SignUp</a></li>
                 @endif
-
             </ul>
         </div>
     </div>

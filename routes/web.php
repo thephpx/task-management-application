@@ -19,3 +19,6 @@ Route::post('/login', 'SessionsController@store');
 Route::get('/logout', 'SessionsController@destroy');
 Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
+
+// routes for functionality
+Route::get('/crews', 'CrewsController@index')->name('crews');

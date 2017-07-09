@@ -9,14 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class RegistrationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function __construct()
     {
-        //
+
+        $this->middleware('guest');
+
     }
 
     /**
@@ -44,7 +42,10 @@ class RegistrationController extends Controller
             'password' => Hash::make(request('password'))
         ]);
 
+
         auth()->login($user);
+
+        session()->flash('message', 'You\'ve just been registered');
 
         return redirect()->home();
 
