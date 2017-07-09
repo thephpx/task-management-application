@@ -24,10 +24,6 @@ class CreateTasksTable extends Migration
             $table->date('finish');
         });
 
-        Schema::create('types', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-        });
     }
 
     /**
@@ -38,5 +34,6 @@ class CreateTasksTable extends Migration
     public function down()
     {
         Schema::dropIfExists('tasks');
+
     }
 }
