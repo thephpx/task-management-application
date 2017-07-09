@@ -1,7 +1,16 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: HP
- * Date: 09-Jul-17
- * Time: 1:25 PM
- */
+@extends('baselayouts.base')
+
+@section('content')
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="page-header">Current Tasks</h2>
+       </div>
+    </div>
+    <div class="row">
+        <div class="">
+
+        </div>
+    </div>
+
+@endsection
