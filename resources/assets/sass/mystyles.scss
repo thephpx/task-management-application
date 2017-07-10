@@ -12,8 +12,11 @@ section {
 }
 
 #formErrors {
-  padding: 10px;
-  list-style: none;
+  margin-top: 20px;
+  ul{
+    padding: 10px;
+    list-style: none;
+  }
 }
 
 #flash {

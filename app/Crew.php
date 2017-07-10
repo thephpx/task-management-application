@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Crew extends Model
 {
 
-    protected $fillable = ['name', 'persons', 'type'];
+    protected $fillable = ['name', 'persons', 'type', 'user_id'];
     protected $guarded  = ['id'];
     protected $hidden   = ['created_at', 'updated_at'];
 

@@ -39,7 +39,6 @@
 
     <div class="row">
         <div class="col-md=12">
-            @include('baselayouts.errors')
             <form class="form-inline" method="post" action="/tasks/store/{{$crew->id}}" id="addTask">
                 {{csrf_field()}}
                 <div class="form-group">
@@ -64,6 +63,7 @@
                 </div>
                 <button type="submit" class="btn btn-default btn-sm">Add</button>
             </form>
+            @include('baselayouts.errors')
         </div>
     </div>
 

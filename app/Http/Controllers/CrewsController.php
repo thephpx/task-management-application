@@ -42,6 +42,7 @@ class CrewsController extends Controller
 
         $crew = Crew::create([
             'name'     => $request['name'],
+            'user_id'  => auth()->user()->id,
             'persons'  => $request['persons'],
             'type'     => $request['type']
         ]);

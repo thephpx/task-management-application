@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h2 class="page-header">You've got {{count($crews)}} crews</h2>
+            <h2 class="page-header">You've got {{count($crews)}} crew(s)</h2>
         </div>
     </div>
 
@@ -14,8 +14,9 @@
                 <a href="/crews/{{$crew->name}}">
                 <div class="row crew">
                     <div class="col-sm-3 text-left">{{$crew->name}}</div>
-                    <div class="col-sm-3 text-center">{{$crew->persons}}</div>
-                    <div class="col-sm-6 text-center">{{$crew->type}}</div>
+                    <div class="col-sm-3 text-center">{{$crew->persons}} persons</div>
+                    <div class="col-sm-3 text-center">{{count($crew->tasks)}} tasks</div>
+                    <div class="col-sm-3 text-center">{{$crew->type}}</div>
                 </div>
                 </a>
             @endforeach

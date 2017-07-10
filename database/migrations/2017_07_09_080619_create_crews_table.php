@@ -13,8 +13,12 @@ class CreateCrewsTable extends Migration
      */
     public function up()
     {
+
         Schema::create('crews', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name')->unique();
             $table->integer('persons');
             $table->string('type');
@@ -33,6 +37,5 @@ class CreateCrewsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('crews');
-        Schema::dropIfExists('types');
     }
 }
