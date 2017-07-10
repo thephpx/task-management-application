@@ -62,6 +62,7 @@ class CrewsController extends Controller
     public function show(Crew $crew)
     {
         $tasks = DB::table('tasks')
+            ->select(DB::raw('*, tasks.id as task_id'))
             ->leftJoin('types', 'tasks.type_id', '=', 'types.id')
             ->where('crew_id', $crew->id)
             ->get();
@@ -70,8 +71,10 @@ class CrewsController extends Controller
             $start = new Carbon($task->start);
             $finish = new Carbon($task->finish);
             $task->start = $start->diffForHumans();
-            $task->finish = $start->diffForHumans();
+            $task->finish = $finish->diffForHumans();
         }
+
+        //dd($tasks);
 
         return view('crew', compact('crew', 'tasks'));
 

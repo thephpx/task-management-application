@@ -24,3 +24,4 @@ Route::post('/register', 'RegistrationController@store');
 Route::get('/crews', 'CrewsController@index')->name('crews');
 Route::post('/crews', 'CrewsController@store');
 Route::get('/crews/{crew}', 'CrewsController@show');
+Route::get('/tasks/destroy/{task}', 'TasksController@destroy');

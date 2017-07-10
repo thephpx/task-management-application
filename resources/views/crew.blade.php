@@ -16,10 +16,13 @@
                 <div class="col-sm-2">{{$task->amount}} m2/m3</div>
                 <div class="col-sm-2">{{$task->start}}</div>
                 <div class="col-sm-2">{{$task->finish}}</div>
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                     @if($task->completed == 1)
                         finished
                     @endif
+                </div>
+                <div class="col-sm-1">
+                    <a href="/tasks/destroy/{{$task->task_id}}" class="btn btn-sm delete-task">&#x2715;</a>
                 </div>
             </div>
         @endforeach
