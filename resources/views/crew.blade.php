@@ -20,17 +20,17 @@
                 <div class="col-sm-2">Start: {{$task->start}}</div>
                 <div class="col-sm-2">
                     @if($task->completed == 1)
-                        Finish: {{$task->finish}}
+                        Day(s) spent: <strong>{{$task->finish}}</strong>
                     @endif
                 </div>
                 @if($task->completed == 0)
-                <div class="col-sm-2">
-                    <a href="/tasks/destroy/{{$task->task_id}}" class="btn btn-default btn-sm action-task">Finish</a>
-                </div>
+                    <div class="col-sm-2">
+                        <a href="/tasks/finish/{{$task->task_id}}" class="btn btn-default btn-sm action-task">Finish</a>
+                    </div>
                 @else
-                <div class="col-sm-2">
-                    <a href="/tasks/destroy/{{$task->task_id}}" class="btn btn-danger btn-sm action-task">Delete</a>
-                </div>
+                    <div class="col-sm-2">
+                        <a href="/tasks/destroy/{{$task->task_id}}" class="btn btn-danger btn-sm action-task">Delete</a>
+                    </div>
                 @endif
             </div>
         @endforeach

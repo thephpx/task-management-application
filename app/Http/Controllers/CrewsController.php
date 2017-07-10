@@ -69,13 +69,14 @@ class CrewsController extends Controller
             ->select(DB::raw('*, tasks.id as task_id'))
             ->leftJoin('types', 'tasks.type_id', '=', 'types.id')
             ->where('crew_id', $crew->id)
+            ->orderBy('completed', 'asc')
             ->get();
 
         foreach($tasks as $task){
             $start = new Carbon($task->start);
             $finish = new Carbon($task->finish);
-            $task->start = $start->diffForHumans();
-            $task->finish = $finish->diffForHumans();
+            $task->start = $start->toFormattedDateString();;
+            $task->finish = $finish->diffInDays($start->copy());
         }
 
         $types = Types::all();

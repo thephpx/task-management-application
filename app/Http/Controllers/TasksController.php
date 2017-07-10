@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TaskSaveRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Task;
 
@@ -30,6 +31,22 @@ class TasksController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
+
         return back();
+    }
+
+
+    // set task as finished
+    public function edit(Task $task)
+    {
+
+        $task->completed = 1;
+
+        $task->finish    = Carbon::today()->toDateString();
+
+        $task->save();
+
+        return back();
+
     }
 }
