@@ -10,6 +10,23 @@ use App\Task;
 class TasksController extends Controller
 {
 
+    public function __construct()
+    {
+
+        $this->middleware('auth');
+
+    }
+
+    public function index()
+    {
+
+        $tasks = Task::where('user_id', auth()->user()->id)->orderBy('completed', 'asc')->get();
+        $tasks = \App\Repositories\Task::combineTaskWithTypes($tasks);
+
+        return view('tasks', compact('tasks'));
+
+    }
+
     // saves a task
     public function store(TaskSaveRequest $request, $crew)
     {

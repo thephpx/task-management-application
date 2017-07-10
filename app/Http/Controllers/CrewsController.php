@@ -30,7 +30,7 @@ class CrewsController extends Controller
     public function index(Crew $crew)
     {
 
-        $crews = Crew::latest()->get();
+        $crews = Crew::all()->where('user_id', auth()->user()->id);
         return view('crews', compact('crews'));
 
     }
@@ -72,12 +72,7 @@ class CrewsController extends Controller
             ->orderBy('completed', 'asc')
             ->get();
 
-        foreach($tasks as $task){
-            $start = new Carbon($task->start);
-            $finish = new Carbon($task->finish);
-            $task->start = $start->toFormattedDateString();;
-            $task->finish = $finish->diffInDays($start->copy());
-        }
+        $tasks = \App\Repositories\Task::combineTaskWithTypes($tasks);
 
         $types = Types::all();
 

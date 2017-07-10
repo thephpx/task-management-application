@@ -30,3 +30,5 @@ Route::get('/crews/{crew}', 'CrewsController@show');
 Route::get('/tasks/destroy/{task}', 'TasksController@destroy');
 Route::post('/tasks/store/{crew}', 'TasksController@store');
 Route::get('/tasks/finish/{task}', 'TasksController@edit');
+Route::get('/tasks/{task}', 'TasksController@index');
+Route::get('/tasks', 'TasksController@index');
