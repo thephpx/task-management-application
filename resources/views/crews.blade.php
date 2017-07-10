@@ -1,4 +1,7 @@
 @extends('baselayouts.base')
+@section('title')
+    {{auth()->user()->name}}'s crews
+@endsection
 
 @section('content')
 
@@ -34,7 +37,7 @@
                     <input type="text" class="form-control" name="name" placeholder="Title for the crew" value="{{old('name')}}" required>
                 </div>
                 <div class="form-group">
-                    <label>Number</label>
+                    <label>Persons</label>
                     <input type="text" class="form-control" name="persons" placeholder="The number of fuckers" value="{{old('persons')}}" required>
                 </div>
                 <div class="form-group">

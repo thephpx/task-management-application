@@ -17,16 +17,21 @@
                 <div class="col-sm-2">Room: {{$task->room}}</div>
                 <div class="col-sm-2">{{$task->name}}</div>
                 <div class="col-sm-2">{{$task->amount}} m2/m3</div>
-                <div class="col-sm-2">{{$task->start}}</div>
-                <div class="col-sm-2">{{$task->finish}}</div>
-                <div class="col-sm-1">
+                <div class="col-sm-2">Start: {{$task->start}}</div>
+                <div class="col-sm-2">
                     @if($task->completed == 1)
-                        finished
+                        Finish: {{$task->finish}}
                     @endif
                 </div>
-                <div class="col-sm-1">
-                    <a href="/tasks/destroy/{{$task->task_id}}" class="btn btn-sm delete-task">&#x2715;</a>
+                @if($task->completed == 0)
+                <div class="col-sm-2">
+                    <a href="/tasks/destroy/{{$task->task_id}}" class="btn btn-default btn-sm action-task">Finish</a>
                 </div>
+                @else
+                <div class="col-sm-2">
+                    <a href="/tasks/destroy/{{$task->task_id}}" class="btn btn-danger btn-sm action-task">Delete</a>
+                </div>
+                @endif
             </div>
         @endforeach
     @else
