@@ -32,4 +32,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Crew::class);
     }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+
+    public function publish(Task $task)
+    {
+        $this->tasks()->save($task);
+    }
 }

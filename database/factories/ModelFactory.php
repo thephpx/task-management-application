@@ -38,6 +38,7 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
     return [
         'crew_id'  => $faker->numberBetween($min = 1, $max = 11),
         'type_id' => $faker->numberBetween($min = 1, $max = 7),
+        'user_id' => 1,
         'room' => $faker->numberBetween($min = 200, $max = 240),
         'amount' => $faker->numberBetween($min = 1, $max = 100),
         'completed' => $faker->boolean(),

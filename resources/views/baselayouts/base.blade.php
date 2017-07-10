@@ -17,6 +17,7 @@
 
     <!-- MYSTYLES -->
     <link href="/css/mystyles.css" rel="stylesheet">
+    <!--Flatpickr-->
     <link href="/css/flatpickr.css" rel="stylesheet">
 
 
@@ -90,6 +91,7 @@
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 <!-- My own JS -->
 <script src="/js/app.js"></script>
+<!--Flatpickr-->
 <script src="/js/flatpickr.js"></script>
 @yield('footer')
 </body>

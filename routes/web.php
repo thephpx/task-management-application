@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/test', 'TestController@test');
+
 
 // login and registration
 Route::get('/login', 'SessionsController@create')->name('login');
@@ -24,4 +26,6 @@ Route::post('/register', 'RegistrationController@store');
 Route::get('/crews', 'CrewsController@index')->name('crews');
 Route::post('/crews', 'CrewsController@store');
 Route::get('/crews/{crew}', 'CrewsController@show');
+
 Route::get('/tasks/destroy/{task}', 'TasksController@destroy');
+Route::post('/tasks/store/{crew}', 'TasksController@store');

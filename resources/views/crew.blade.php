@@ -1,4 +1,7 @@
 @extends('baselayouts.base')
+@section('title')
+    {{$crew->name}}'s tasks
+@endsection
 
 @section('content')
 
@@ -37,11 +40,8 @@
     <div class="row">
         <div class="col-md=12">
             @include('baselayouts.errors')
-            <form class="form-inline" method="post" action="/tasks/store" id="addTask">
-                <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" class="form-control" name="title" placeholder="Title for the crew" value="{{old('title')}}" required>
-                </div>
+            <form class="form-inline" method="post" action="/tasks/store/{{$crew->id}}" id="addTask">
+                {{csrf_field()}}
                 <div class="form-group">
                     <label>Type</label>
                     <select class="form-control" name="type_id">
@@ -62,7 +62,7 @@
                     <label>Start</label>
                     <input class="form-control" name="start" type="text" value="{{old('start')}}" id="startDate">
                 </div>
-
+                <button type="submit" class="btn btn-default btn-sm">Add</button>
             </form>
         </div>
     </div>
@@ -75,7 +75,7 @@
         $(document).ready(function(){
             $('#startDate').flatpickr({
                 altInput:true,
-                
+
             });
         })
     </script>

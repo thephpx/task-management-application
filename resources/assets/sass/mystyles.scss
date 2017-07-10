@@ -68,6 +68,16 @@ section {
 
 #addTask {
   margin-top: 40px;
+  text-align:left;
+  label {
+    margin-right: 5px;
+  }
+  .form-group {
+    width: 17%;
+  }
+  input{
+    width: 60%;
+  }
 }
 
 
