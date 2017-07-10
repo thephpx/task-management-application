@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Crew;
 use App\Http\Requests\CrewSaveRequest;
+use App\Task;
+use App\Types;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Mockery\Matcher\Type;
 
 class CrewsController extends Controller
 {
@@ -74,9 +77,9 @@ class CrewsController extends Controller
             $task->finish = $finish->diffForHumans();
         }
 
-        //dd($tasks);
+        $types = Types::all();
 
-        return view('crew', compact('crew', 'tasks'));
+        return view('crew', compact('crew', 'tasks', 'types'));
 
     }
 

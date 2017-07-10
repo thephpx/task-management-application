@@ -34,5 +34,49 @@
         </div>
     @endif
 
+    <div class="row">
+        <div class="col-md=12">
+            @include('baselayouts.errors')
+            <form class="form-inline" method="post" action="/tasks/store" id="addTask">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" name="title" placeholder="Title for the crew" value="{{old('title')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Type</label>
+                    <select class="form-control" name="type_id">
+                        @foreach($types as $type)
+                            <option value="{{$type->id}}">{{$type->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Room</label>
+                    <input class="form-control" name="room" type="text" value="{{old('room')}}">
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input class="form-control" name="amount" type="text" value="{{old('amount')}}">
+                </div>
+                <div class="form-group">
+                    <label>Start</label>
+                    <input class="form-control" name="start" type="text" value="{{old('start')}}" id="startDate">
+                </div>
 
+            </form>
+        </div>
+    </div>
+
+
+@endsection
+
+@section('footer')
+    <script>
+        $(document).ready(function(){
+            $('#startDate').flatpickr({
+                altInput:true,
+                
+            });
+        })
+    </script>
 @endsection

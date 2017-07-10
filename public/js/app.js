@@ -791,6 +791,9 @@ var app = new Vue({
     el: '#app'
 });
 
+//const flatpickr = window.flatpickr = require("flatpickr");
+
+
 $(document).ready(function () {
     setTimeout(fadeFlash, 3000);
 });
