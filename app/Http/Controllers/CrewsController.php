@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Crew;
 use App\Http\Requests\CrewSaveRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CrewsController extends Controller
 {
@@ -31,12 +33,7 @@ class CrewsController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // saves a crew in the database
     public function store(CrewSaveRequest $request)
     {
 
@@ -61,15 +58,23 @@ class CrewsController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    // shows a particular crew
+    public function show(Crew $crew)
     {
-        //
+        $tasks = DB::table('tasks')
+            ->leftJoin('types', 'tasks.type_id', '=', 'types.id')
+            ->where('crew_id', $crew->id)
+            ->get();
+
+        foreach($tasks as $task){
+            $start = new Carbon($task->start);
+            $finish = new Carbon($task->finish);
+            $task->start = $start->diffForHumans();
+            $task->finish = $start->diffForHumans();
+        }
+
+        return view('crew', compact('crew', 'tasks'));
+
     }
 
     /**

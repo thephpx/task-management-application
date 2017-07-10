@@ -33,3 +33,16 @@ $factory->define(App\Crew::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Task::class, function (Faker\Generator $faker) {
+
+    return [
+        'crew_id'  => $faker->numberBetween($min = 1, $max = 11),
+        'type_id' => $faker->numberBetween($min = 1, $max = 7),
+        'room' => $faker->numberBetween($min = 200, $max = 240),
+        'amount' => $faker->numberBetween($min = 1, $max = 100),
+        'completed' => $faker->boolean(),
+        'start' => $faker->dateTime($max = 'now'),
+        'finish' => $faker->dateTime($max = 'now')
+    ];
+});
+

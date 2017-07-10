@@ -23,3 +23,4 @@ Route::post('/register', 'RegistrationController@store');
 // routes for functionality
 Route::get('/crews', 'CrewsController@index')->name('crews');
 Route::post('/crews', 'CrewsController@store');
+Route::get('/crews/{crew}', 'CrewsController@show');
