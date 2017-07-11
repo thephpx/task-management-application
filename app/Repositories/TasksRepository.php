@@ -24,7 +24,7 @@ class TasksRepository
     public static function getUserTasks()
     {
         $tasks = DB::table('tasks')
-            ->select(DB::raw('room, amount, start, finish, tasks.id as task_id, types.name as type, crews.name as name'))
+            ->select(DB::raw('room, amount, completed, start, finish, tasks.id as task_id, types.name as type, types.id as type_id, crews.name as name'))
             ->leftJoin('types', 'tasks.type_id', '=', 'types.id')
             ->leftJoin('crews', 'tasks.crew_id', '=', 'crews.id')
             ->where('tasks.user_id', auth()->user()->id)

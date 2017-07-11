@@ -14,8 +14,9 @@
     @if(count($tasks))
         @foreach($tasks as $task)
             <div class="row task">
-                <div class="col-sm-2">Room: {{$task->room}}</div>
-                <div class="col-sm-2"><a href="/tasks/show/{{$task->type_id}}">{{$task->name}}</a></div>
+                <div class="col-sm-1">R: {{$task->room}}</div>
+                <div class="col-sm-2">Crew: {{$task->name}}</div>
+                <div class="col-sm-1"><a href="/tasks/show/{{$task->type_id}}">{{$task->type}}</a></div>
                 <div class="col-sm-2">{{$task->amount}} m2/m3</div>
                 <div class="col-sm-2">Start: {{$task->start}}</div>
                 <div class="col-sm-2">
