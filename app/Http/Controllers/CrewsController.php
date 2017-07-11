@@ -9,7 +9,7 @@ use App\Types;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Mockery\Matcher\Type;
+use App\Repositories\TasksRepository;
 
 class CrewsController extends Controller
 {
@@ -72,7 +72,7 @@ class CrewsController extends Controller
             ->orderBy('completed', 'asc')
             ->get();
 
-        $tasks = \App\Repositories\Task::combineTaskWithTypes($tasks);
+        $tasks = TasksRepository::combineTaskWithTypes($tasks);
 
         $types = Types::all();
 

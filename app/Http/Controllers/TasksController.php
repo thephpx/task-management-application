@@ -24,7 +24,7 @@ class TasksController extends Controller
         $tasks = TasksRepository::getUserTasks();
         $tasks = TasksRepository::combineTaskWithTypes($tasks);
 
-        //dd($tasks);
+        dd($tasks);
         return view('tasks', compact('tasks'));
 
     }
