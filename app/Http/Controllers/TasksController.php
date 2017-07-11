@@ -22,6 +22,13 @@ class TasksController extends Controller
     {
 
         $tasks = TasksRepository::getUserTasks();
+
+        if(request('type') != null){
+            $tasks = $tasks->filter(function ($task) {
+                return $task->type == request('type');
+            });
+        }
+
         //dd($tasks);
         $tasks = TasksRepository::combineTaskWithTypes($tasks);
 

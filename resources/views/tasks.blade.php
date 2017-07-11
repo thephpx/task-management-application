@@ -16,7 +16,7 @@
             <div class="row task">
                 <div class="col-sm-1">R: {{$task->room}}</div>
                 <div class="col-sm-2">Crew: {{$task->name}}</div>
-                <div class="col-sm-1"><a href="/tasks/show/{{$task->type_id}}">{{$task->type}}</a></div>
+                <div class="col-sm-1"><a href="/tasks?type={{$task->type}}">{{$task->type}}</a></div>
                 <div class="col-sm-2">{{$task->amount}} m2/m3</div>
                 <div class="col-sm-2">Start: {{$task->start}}</div>
                 <div class="col-sm-2">
