@@ -50,13 +50,13 @@
                 <li><a href="/">Overview</a></li>
                 <li><a href="/tasks">Tasks</a></li>
                 <li><a href="/crews">Crews</a></li>
+                <li><a href="/logout">Logout</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Hi, {{Auth::user()->name}}</a>
-                        <li><a href="/logout">Logout</a></li>
-                        <li style="color:#700000"><span class="bage">{{$task_count}} tasks</span></li>
+                        <li><a><span style="color:#700000" class="bage">{{$task_count}} tasks</span></a></li>
                     </li>
                 @else
                     <li><a href="/login">Login</a></li>
