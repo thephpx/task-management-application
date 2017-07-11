@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\TasksRepository;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +15,14 @@ class HomeController extends Controller
     public function index()
     {
 
-        return view('overview');
+        $tasks = TasksRepository::getUserTasks();
+        
+        $current_tasks =$tasks->filter(function ($task){
+           return $task->completed == 0;
+        });
+
+        //dd($current_tasks);
+        return view('overview', compact('current_tasks'));
 
     }
 

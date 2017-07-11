@@ -47,7 +47,7 @@
 
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a>Overview</a></li>
+                <li><a href="/">Overview</a></li>
                 <li><a href="/tasks">Tasks</a></li>
                 <li><a href="/crews">Crews</a></li>
             </ul>
