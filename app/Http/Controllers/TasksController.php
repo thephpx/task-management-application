@@ -6,6 +6,7 @@ use App\Http\Requests\TaskSaveRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Task;
+use App\Repositories\TasksRepository;
 
 class TasksController extends Controller
 {
@@ -20,9 +21,10 @@ class TasksController extends Controller
     public function index()
     {
 
-        $tasks = Task::where('user_id', auth()->user()->id)->orderBy('completed', 'asc')->get();
-        $tasks = \App\Repositories\Task::combineTaskWithTypes($tasks);
+        $tasks = TasksRepository::getUserTasks();
+        $tasks = TasksRepository::combineTaskWithTypes($tasks);
 
+        //dd($tasks);
         return view('tasks', compact('tasks'));
 
     }

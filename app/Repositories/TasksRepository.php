@@ -3,7 +3,10 @@
 namespace App\Repositories;
 
 use Carbon\Carbon;
-class Task
+use Illuminate\Support\Facades\DB;
+
+
+class TasksRepository
 {
 
     public static function combineTaskWithTypes($tasks)
@@ -14,6 +17,18 @@ class Task
             $task->start = $start->toFormattedDateString();;
             $task->finish = $finish->diffInDays($start->copy());
         }
+
+        return $tasks;
+    }
+
+    public static function getUserTasks()
+    {
+        $tasks = DB::table('tasks')
+            ->select(DB::raw('*, tasks.id as task_id'))
+            ->leftJoin('types', 'tasks.type_id', '=', 'types.id')
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('completed', 'asc')
+            ->get();
 
         return $tasks;
     }
