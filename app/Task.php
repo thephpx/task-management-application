@@ -24,5 +24,14 @@ class Task extends Model
 
     }
 
+    public static function ongoingTaskCount()
+    {
+
+        $tasks = auth()->user()->tasks;
+        $count = $tasks->filter(function ($task){return $task->completed == 0;})->count();
+        return $count;
+
+    }
+
 
 }

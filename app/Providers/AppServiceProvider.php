@@ -15,7 +15,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        Schema::defaultStringLength(191); // fixed bug of not default values
+
+        view()->composer('baselayouts.base', function($view){
+            $view->with('task_count', \App\Task::ongoingTaskCount());
+        });
     }
 
     /**

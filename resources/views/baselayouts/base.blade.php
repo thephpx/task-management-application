@@ -56,6 +56,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Hi, {{Auth::user()->name}}</a>
                         <li><a href="/logout">Logout</a></li>
+                        <li style="color:#700000"><span class="bage">{{$task_count}} tasks</span></li>
                     </li>
                 @else
                     <li><a href="/login">Login</a></li>
