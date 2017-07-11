@@ -1,0 +1,28 @@
+composer create-project laravel/laravel <prefer-dist>                                               npm uninstall --save node-uuid install before  running
+artisan tinker   = mysql shell laravel                                                              npm run watch continuously compiling sass and js to public css and js
+artisan migrate  = migration                                                                        vendor/bin/phpunit tests
+artisan megrate:refresh delete all data and populate database with new tables (or updated ones)     factory('App\User', 10)->create()  seeds database with fake records
+artisan make:model -m create model with migration                                                   mysql -uroot -p open mysql cmd
+artisan make:model Task -m creates model wit migration file
+artisan make:model Post -mc creates model, migration and controller
+artisan make:controller Post -r  creates resoursfull controller
+artisan make:request StoreBlogPostRequest creates a class for form validation
+artisan make:auth creates all authentification features
+artisan down application under maintainance mode
+artisan config:cache   caching of all environmental vars (you need to do that if you add a new one)
+artisan make:provider ServiceMediaProvider create a provider
+artisan make:mail Welcome creates a mail class for particular email type
+artisan make:mail WelcomeAgain --markdown="emails.welcome_again" creates mail with a template
+artisan vendor:publish --tag=laravel-mail   upload all venodrs views (mail part) to views folder
+artisan migrate:rollback  rollback the last migration in order to clean the way to remigrate it
+artisan event:generate generated events and respectful listeners which were previously registered in EventServiceProvider
+
+
+
+
+
+  // database credentials
+    const DB_HOST = 'localhost';
+    const DB_NAME = 'id1976071_hotel';
+    const DB_USER = 'id1976071_turisap89';
+    const DB_PASSWORD = 'zzz333zzz';

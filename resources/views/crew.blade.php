@@ -44,11 +44,12 @@
 
     <div class="row">
         <div class="col-md=12">
+            @include('baselayouts.errors')
             <form class="form-inline" method="post" action="/tasks/store/{{$crew->id}}" id="addTask">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label>Type</label>
-                    <select class="form-control" name="type_id">
+                    <select class="form-control input-sm" name="type_id">
                         @foreach($types as $type)
                             <option value="{{$type->id}}">{{$type->name}}</option>
                         @endforeach
@@ -56,19 +57,33 @@
                 </div>
                 <div class="form-group">
                     <label>Room</label>
-                    <input class="form-control" name="room" type="text" value="{{old('room')}}">
+                    <input class="form-control input-sm" name="room" type="text" value="{{old('room')}}">
                 </div>
                 <div class="form-group">
                     <label>Amount</label>
-                    <input class="form-control" name="amount" type="text" value="{{old('amount')}}">
+                    <input class="form-control input-sm" name="amount" type="text" value="{{old('amount')}}">
                 </div>
                 <div class="form-group">
                     <label>Start</label>
-                    <input class="form-control" name="start" type="text" value="{{old('start')}}" id="startDate">
+                    <input class="form-control input-sm" name="start" type="text" value="{{old('start')}}" id="startDate">
                 </div>
-                <button type="submit" class="btn btn-default btn-sm">Add</button>
+                <button type="submit" class="btn btn-default btn-sm">Add Task</button>
             </form>
-            @include('baselayouts.errors')
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md=12">
+            <form class="form-inline" method="post" action="/type/store" id="addType">
+                {{csrf_field()}}
+                <div class="form-group">
+                    <label>Type Name</label>
+                    <input class="form-control input-sm" name="name" type="text" value="{{old('type')}}">
+                </div>
+                <button type="submit" class="btn btn-default btn-sm">Add Type</button>
+            </form>
         </div>
     </div>
 
