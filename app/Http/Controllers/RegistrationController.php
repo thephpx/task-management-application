@@ -15,7 +15,6 @@ class RegistrationController extends Controller
     {
 
         $this->middleware('guest');
-
     }
 
     /**
@@ -43,8 +42,7 @@ class RegistrationController extends Controller
             'password' => Hash::make(request('password'))
         ]);
 
-        if($user){
-
+        if ($user) {
             auth()->login($user);
 
             session()->flash('message', 'You\'ve just been registered');
@@ -53,14 +51,12 @@ class RegistrationController extends Controller
             event(new Registration(auth()->user()));
 
             return redirect()->home();
-
         }
 
 
         return redirect()->back()->withErrors([
             'message' => 'There was a problem processing your request'
         ]);
-
     }
 
 

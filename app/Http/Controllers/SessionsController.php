@@ -13,7 +13,6 @@ class SessionsController extends Controller
     {
 
         $this->middleware('guest')->except(['destroy']);
-
     }
 
     /**
@@ -45,7 +44,7 @@ class SessionsController extends Controller
     public function store(LoginRequest $request)
     {
 
-        if(! auth()->attempt(request(['email', 'password']))){
+        if (! auth()->attempt(request(['email', 'password']))) {
             return back()->withErrors([
                 'message' => 'Please check your credentials'
             ]);
