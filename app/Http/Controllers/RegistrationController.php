@@ -42,12 +42,19 @@ class RegistrationController extends Controller
             'password' => Hash::make(request('password'))
         ]);
 
+        if(1 == 56){
 
-        auth()->login($user);
+            auth()->login($user);
 
-        session()->flash('message', 'You\'ve just been registered');
+            session()->flash('message', 'You\'ve just been registered');
 
-        return redirect()->home();
+            return redirect()->home();
+
+        }
+
+        return redirect()->back()->withErrors([
+            'message' => 'There was a problem processing your request'
+        ]);
 
     }
 

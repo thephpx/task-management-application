@@ -49,7 +49,7 @@ class CrewsController extends Controller
         }
 
         return redirect()->back()->withErrors([
-            'message' => 'Please check your credentials'
+            'message' => 'There was a problem processing your request'
         ]);
 
 
