@@ -47,21 +47,19 @@
 
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li><a href="/">Overview</a></li>
-                <li><a href="/tasks">Tasks</a></li>
-                <li><a href="/crews">Crews</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact">Hi, {{Auth::user()->name}}</a>
-                        <li><a><span style="color:#700000" class="bage">{{$task_count}} tasks</span></a></li>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/contact">Hi, {{Auth::user()->name}}<sup><span style="color:#700000" class="bage">{{$task_count}} tasks</span></sup></a></li>
+                    <li><a href="/">Overview</a></li>
+                    <li><a href="/tasks">Tasks</a></li>
+                    <li><a href="/crews">Crews</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 @else
                     <li><a href="/login">Login</a></li>
                     <li><a href="/register">SignUp</a></li>
                 @endif
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+               <li>{{resolve(\App\Company\Company::class)->company_name}}</li>
             </ul>
         </div>
     </div>
