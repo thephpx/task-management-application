@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\Event;
+use App\Events\Registration;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EventListener
+class RegistrationListener
 {
     /**
      * Create the event listener.
@@ -21,11 +21,14 @@ class EventListener
     /**
      * Handle the event.
      *
-     * @param  Event  $event
+     * @param  Registration  $event
      * @return void
      */
-    public function handle(Event $event)
+    // create a test crew for this new user
+    public function handle(Registration $event)
     {
-        //
+
+
+
     }
 }

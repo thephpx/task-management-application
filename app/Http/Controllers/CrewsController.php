@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\TasksRepository;
+use App\Repositories\CrewsRepository;
 
 class CrewsController extends Controller
 {
@@ -40,16 +41,9 @@ class CrewsController extends Controller
     public function store(CrewSaveRequest $request)
     {
 
-        $crew = Crew::create([
-            'name'     => $request['name'],
-            'user_id'  => auth()->user()->id,
-            'persons'  => $request['persons'],
-            'type'     => $request['type']
-        ]);
+        if(CrewsRepository::createCrew($request)){
 
-        if($crew){
-
-            session()->flash('message', 'Crews has been created');
+            session()->flash('message', 'Crew has been created');
             return redirect()->back();
 
         }
