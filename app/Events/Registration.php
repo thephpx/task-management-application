@@ -15,7 +15,7 @@ class Registration implements ShouldQueue //should queue allows it not to queuei
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $user;
+    public $user;  // you must have al properties which are created in the constructor declared here
 
     public function __construct($user)
     {
