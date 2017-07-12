@@ -2,7 +2,9 @@
 
 namespace App\Listeners;
 
+use App\Crew;
 use App\Events\Registration;
+use App\Repositories\CrewsRepository;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -28,7 +30,12 @@ class RegistrationListener
     public function handle(Registration $event)
     {
 
-
+        CrewsRepository::createCrew([
+            'name'    => $event->user->name . 'Test',
+            'user_id' => $event->user->id,
+            'persons'  => 0,
+            'type'     => 1
+        ]);
 
     }
 }

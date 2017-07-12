@@ -13,7 +13,7 @@ class TestController extends Controller
     public function test()
     {
 
-        dd(resolve(Company::class));
+        dd(auth()->user());
 
 
     }

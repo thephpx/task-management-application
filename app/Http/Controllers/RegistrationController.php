@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Registration;
 use App\Http\Requests\UserSaveRequest;
 use App\User;
 use Illuminate\Http\Request;
@@ -42,15 +43,19 @@ class RegistrationController extends Controller
             'password' => Hash::make(request('password'))
         ]);
 
-        if(1 == 56){
+        if($user){
 
             auth()->login($user);
 
             session()->flash('message', 'You\'ve just been registered');
 
+            // fire up the registration event
+            event(new Registration(auth()->user()));
+
             return redirect()->home();
 
         }
+
 
         return redirect()->back()->withErrors([
             'message' => 'There was a problem processing your request'
